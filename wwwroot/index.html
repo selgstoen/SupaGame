@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <link rel="icon" href="data:;base64,=">
+  <script data-main="scripts/config.js" src="scripts/modules/require.js"></script>
+</head>
+
+<body>
+  <p>
+    choose person:
+    <select data-bind="options: users,
+                       optionsText: 'name',
+                       value: selectedUser,
+                       optionsCaption: 'Choose...',
+                       event : {change: userSelect}"></select>
+
+    <table data-bind="visible: score().length > 0">
+      <thead>
+        <tr>
+          <th>One</th>
+          <th>Two</th>
+          <th>Three</th>
+          <th>Four</th>
+          <th>Five</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr data-bind="foreach: score()">
+          <td data-bind="text: $data"></td>
+        </tr>
+      </tbody>
+    </table>
+  </p>
+  <p>First name: <input data-bind="value: firstName" /></p>
+  <p>First name capitalized: <strong data-bind="text: firstNameCaps, blink: firstName"></strong></p>
+  <p>
+    <button data-bind="click: myClick">My click</button>
+    <div data-bind="yourBindingName: someValue"> </div>
+  </p>
+  <p>
+    <div data-bind="slideVisible: giftWrap, slideDuration:600">You have selected the option</div>
+    <label><input type="checkbox" data-bind="checked: giftWrap" /> Gift wrap</label></p>
+</body>
+
+</html>
