@@ -9,15 +9,21 @@ define(function () {
         }, this);
         this.giftWrap = ko.observable(true);
         this.myClick = function () {
-            var userScore = repo.GetScore(parseInt(this.firstName(), null));
-            this.score(userScore);
-            console.log(this.selectedUser());
+            var names = ["Svein", "Heidi", "Jonas", "Erlend"];
+            repo.getInfo(names, this.arrayFye);
+            // var userScore = repo.GetScore(parseInt(this.firstName(), null));
+            // this.score(userScore);
+            // console.log(this.selectedUser());
         };
         this.userSelect = function () {
             var id = this.selectedUser().id;
             this.score(repo.GetScore(id));
             console.log(this.score());
         };
+        function arrayFye(values) {
+            var arr = _.split(values, ",");
+            console.log(arr);
+        }
     };
 });
 //# sourceMappingURL=appViewModel.js.map

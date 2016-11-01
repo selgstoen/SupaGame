@@ -5,6 +5,7 @@ import contracts = require("contracts");
 export interface IRepository {
     GetUsers();
     GetScore(id: number);
+    getInfo(names: string[], callback);
 }
 
 export class Repository implements IRepository {
@@ -35,5 +36,10 @@ export class Repository implements IRepository {
             return [];
         }
         return result[0].points;
+    }
+
+    getInfo(names: string[], callback) {
+        // let allNames = _.join(names, ",");
+        //callback(allNames);
     }
 };

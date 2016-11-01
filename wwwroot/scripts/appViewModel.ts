@@ -11,9 +11,11 @@ define(function () {
         this.giftWrap = ko.observable(true);
 
         this.myClick = function () {
-            var userScore = repo.GetScore(parseInt(this.firstName(), null));
-            this.score(userScore);
-            console.log(this.selectedUser());
+            let names = ["Svein", "Heidi", "Jonas", "Erlend"];
+            repo.getInfo(names, this.arrayFye);
+            // var userScore = repo.GetScore(parseInt(this.firstName(), null));
+            // this.score(userScore);
+            // console.log(this.selectedUser());
         };
 
         this.userSelect = function(){
@@ -22,5 +24,10 @@ define(function () {
 
             console.log(this.score());
         };
+
+        function arrayFye(values: string){
+            let arr = _.split(values, ",");
+            console.log(arr);
+        }
     };
 });
